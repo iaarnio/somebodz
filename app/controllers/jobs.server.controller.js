@@ -97,7 +97,7 @@ exports.jobByID = function(req, res, next, id) {
 };
 
 /**
- * JOb authorization middleware
+ * Job authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.job.user.id !== req.user.id) {
