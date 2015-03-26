@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
  * Create a job
  */
 exports.create = function(req, res) {
-	var article = new Job(req.body);
+	var job = new Job(req.body);
 	job.employer = req.user;
 
 	job.save(function(err) {
@@ -41,7 +41,7 @@ exports.update = function(req, res) {
 
 	job = _.assign(job, req.body);
 
-	article.save(function(err) {
+	job.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -56,7 +56,7 @@ exports.update = function(req, res) {
  * Delete a job
  */
 exports.delete = function(req, res) {
-	var ob = req.job;
+	var job = req.job;
 
 	job.remove(function(err) {
 		if (err) {
@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Jobs
  */
 exports.list = function(req, res) {
-	Job.find().sort('-created').populate('user', 'displayName').exec(function(err, articles) {
+	Job.find().sort('-created').populate('user', 'displayName').exec(function(err, jobs) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,9 +88,9 @@ exports.list = function(req, res) {
  * Job middleware
  */
 exports.jobByID = function(req, res, next, id) {
-	Job.findById(id).populate('user', 'displayName').exec(function(err, article) {
+	Job.findById(id).populate('user', 'displayName').exec(function(err, job) {
 		if (err) return next(err);
-		if (!ojb) return next(new Error('Failed to load job ' + id));
+		if (!job) return next(new Error('Failed to load job ' + id));
 		req.job = job;
 		next();
 	});

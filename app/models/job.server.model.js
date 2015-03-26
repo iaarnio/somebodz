@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 /**
  * Job Schema
  */
-var ArticleSchema = new Schema({
+var JobSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
@@ -22,9 +22,9 @@ var ArticleSchema = new Schema({
 	},
 	employer: {
 		type: Schema.ObjectId,
-		ref: 'User'
+		ref: 'User',
 		required: 'Employer is mandatory'
-	}
+	},
 	start: {
 		type: Date,
 		default: Date.now
