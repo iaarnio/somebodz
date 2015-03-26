@@ -29,8 +29,6 @@ Application is available on [http://localhost:3000](http://localhost:3000)
 
 # Virtualized environment
 
-Application is available on [http://localhost:3000](http://localhost:3000)
-
 ## Requirements
 
 - [Vagrant](http://www.vagrantup.com/download) installed
