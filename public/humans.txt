@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Ilari Aarnio -- developer -- @iaarnio
 
 # THANKS
 
-    <name>
+    MEANJS for project base
 
 # TECHNOLOGY COLOPHON
 
